@@ -4,7 +4,7 @@ Project 02 of the Cloud Computing & Big Data Course at NYU taught by Prof. [Samb
 
 The aim of the project is to implement a distributed authentication system providing access to a virtual door. 
 
-Tools & AWS Services Used: [DynamoDB](https://aws.amazon.com/dynamodb/), [Kinesis](https://aws.amazon.com/kinesis/), [Lambda](https://aws.amazon.com/lambda/), [Rekognition](https://aws.amazon.com/rekognition/), [S3](https://aws.amazon.com/s3/), [SNS](https://aws.amazon.com/sns/), [Postman](https://www.postman.com/)  
+Tools & AWS Services Used: [API Gateway](https://aws.amazon.com/api-gateway/), [DynamoDB](https://aws.amazon.com/dynamodb/), [Kinesis](https://aws.amazon.com/kinesis/), [Lambda](https://aws.amazon.com/lambda/), [Rekognition](https://aws.amazon.com/rekognition/), [S3](https://aws.amazon.com/s3/), [SNS](https://aws.amazon.com/sns/), [Postman](https://www.postman.com/)  
 
 
 ## System Architecture & Workflow
