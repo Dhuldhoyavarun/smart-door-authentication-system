@@ -16,14 +16,16 @@ Tools & AWS Services Used: [API Gateway](https://aws.amazon.com/api-gateway/), [
 </p>
 
 + The S3 bucket B1 is used to store images. Bucket B2 stores front-end webpages WP1 & WP2.  
-WP1 is used to take visitor details such as the name and phone number of visitor. WP2 acts as a virtual door that prompts the user to input OTP.
+WP1 is used to take visitor details such as the name and phone number of visitor.  
+WP2 acts as a virtual door that prompts the user to input OTP.
 
 + DynamoDB database table DB1 stores temporary access codes to the door and a reference to the visitor it was assigned to. Using the TTL feature, all records expire after 5 mins.  
-Table DB2 stores details of visitors processed using Rekognition. Each FaceId detected by Rekognition is indexed and stored in DB2 alongside the name of the vistor and their phone number. If a FaceId already exists for a visitor, the new photo is appended to the existing visitor's photo array.
+Table DB2 stores details of visitors processed using Rekognition. Each FaceId detected by Rekognition is indexed and stored in DB2 alongside the name of the vistor and their phone number.  
+If a FaceId already exists for a visitor, the new photo is appended to the existing visitor's photo array.
 
 + The Kinesis Video Stream captures video stream from the webcam set up on a local computer. The Rekognition Video service is subscribed to the Kinesis Video Stream. The output of the Rekognition service is sent to Kinesis Data Stream for further processing.  
 
-+ The Rekognition service outputs can lead to 2 scenarios:  
-For every known face detected by Rekognition, a lambda function is triggered which sends an SMS to the recognised person's phone number containing an OTP that is used to open the virtual door.  
-For evry unknown face detected, an Email is sent to the administrator containing a photo of the visitor and a link to the approval form(WP1). The details entered in the approval form are used to create a new record in DB2 with the FaceId indexed by the Rekognition service. An OTP is sent to new visitor with a set expiration time of 5 minutes.  
++ The Rekognition service outputs lead to two scenarios:  
+  + For every known face detected by Rekognition, a lambda function is triggered which sends an SMS to the recognised person's phone number containing an OTP that is used to open the virtual door.  
+  + For evry unknown face detected, an Email is sent to the administrator containing a photo of the visitor and a link to the approval form(WP1). The details entered in the approval form are used to create a new record in DB2 with the FaceId indexed by the Rekognition service. An OTP is sent to new visitor with a set expiration time of 5 minutes.  
 
