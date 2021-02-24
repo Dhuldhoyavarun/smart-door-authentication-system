@@ -27,5 +27,5 @@ If a FaceId already exists for a visitor, the new photo is appended to the exist
 
 + The Rekognition service outputs lead to two scenarios:  
   + For every known face detected by Rekognition, a lambda function is triggered which sends an SMS to the recognised person's phone number containing an OTP that is used to open the virtual door.  
-  + For evry unknown face detected, an Email is sent to the administrator containing a photo of the visitor and a link to the approval form(WP1). The details entered in the approval form are used to create a new record in DB2 with the FaceId indexed by the Rekognition service. An OTP is sent to new visitor with a set expiration time of 5 minutes.  
+  + For every unknown face detected, an Email is sent to the administrator containing a photo of the visitor and a link to the approval form(WP1). The details entered in the approval form are used to create a new record in DB2 with the FaceId indexed by the Rekognition service. An OTP is sent to new visitor with a set expiration time of 5 minutes.  
 
