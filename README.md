@@ -22,6 +22,6 @@ Tools & AWS Services Used: [API Gateway](https://aws.amazon.com/api-gateway/), [
 + The Kinesis Video Stream captures video stream from the webcam set up on a local computer. The Rekognition Video service is subscribed to the Kinesis Video Stream. The output of the Rekognition service is sent to Kinesis Data Stream for further processing.  
 
 + The Rekognition service outputs lead to two scenarios:  
-  + For every known face detected, a lambda function is triggered which sends an SMS to the recognised person's phone number containing an OTP that is used to open the virtual door.  
+  + For every known face detected, a lambda function(LF1) is triggered which sends an SMS to the recognised person's phone number containing an OTP that is used to open the virtual door.  
   + For every unknown face detected, an Email is sent to the administrator containing a photo of the visitor and a link to the approval form(WP1). The details entered in the approval form are used to create a new record in DB2 with the FaceId indexed by the Rekognition service. An OTP is sent to new visitor with a set expiration time of 5 minutes.  
 
