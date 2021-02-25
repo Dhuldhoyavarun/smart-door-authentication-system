@@ -15,13 +15,9 @@ Tools & AWS Services Used: [API Gateway](https://aws.amazon.com/api-gateway/), [
   <img src="https://github.com/Dhuldhoyavarun/smart_door_authentication_system/blob/main/Lambda_functions/Architecture.PNG" width='700' title="Architecture">
 </p>
 
-+ The S3 bucket B1 is used to store images. Bucket B2 stores front-end webpages WP1 & WP2.  
-WP1 is used to take visitor details such as the name and phone number of visitor.  
-WP2 acts as a virtual door that prompts the user to input OTP.
++ The S3 bucket B1 is used for storing images. The Bucket B2 is set up for web-hosting and hosts front-end webpages WP1 & WP2. WP1 takes visitor details such as the name and phone number. WP2 acts as a virtual door that prompts the user to input received OTP.
 
-+ DynamoDB database table DB1 stores temporary access codes to the door and a reference to the visitor it was assigned to. Using the TTL feature, all records expire after 5 mins.  
-Table DB2 stores details of visitors processed using Rekognition. Each FaceId detected by Rekognition is indexed and stored in DB2 alongside the name of the vistor and their phone number.  
-If a FaceId already exists for a visitor, the new photo is appended to the existing visitor's photo array.
++ DynamoDB database table DB1 stores temporary codes that provide access to the door and a reference to the assigned visitor. Using the TTL feature, each code expires after 5 minutes. Table DB2 stores details of visitors processed using Rekognition wherein each FaceId detected by Rekognition is indexed and stored alongside the name and phone number of the visitor. If a FaceId already exists for a visitor, the new photo is appended to the visitor's existing photo array.
 
 + The Kinesis Video Stream captures video stream from the webcam set up on a local computer. The Rekognition Video service is subscribed to the Kinesis Video Stream. The output of the Rekognition service is sent to Kinesis Data Stream for further processing.  
 
